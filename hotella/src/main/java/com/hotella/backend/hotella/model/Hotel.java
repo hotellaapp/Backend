@@ -1,59 +1,95 @@
 package com.hotella.backend.hotella.model;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Objects;
 
 @Entity
-@Table(name="hoteis")
+@Table(name = "hotel")
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Hotel implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="idHotel")
-    private int idHotel;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    @Column(name="descricao")
-    private String descricao;
+    @Column(name = "description")
+    private String description;
 
-    @Column(name="linkImagem")
-    private String linkImagem;
+    @Column(name = "linkImage")
+    private String linkImage;
 
-
-    public Hotel() {
-
+    public Hotel(String description, String linkImage) {
+        this.description = description;
+        this.linkImage = linkImage;
     }
 
-    public Hotel(String descricao, String linkImagem) {
-        this.descricao = descricao;
-        this.linkImagem = linkImagem;
-
+    public Long getId() {
+        return id;
     }
 
-    public int getIdHotel() {
-        return idHotel;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setIdHotel(int idHotel) {
-        this.idHotel = idHotel;
+    public String getDescription() {
+        return description;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public Hotel description(String description) {
+        this.description = description;
+        return this;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getLinkImagem() {
-        return linkImagem;
+    public String getLinkImage() {
+        return linkImage;
     }
 
-    public void setLinkImagem(String linkImagem) {
-        this.linkImagem = linkImagem;
+    public Hotel linkImage(String linkImage) {
+        this.linkImage = linkImage;
+        return this;
+    }
+
+    public void setLinkImage(String linkImage) {
+        this.linkImage = linkImage;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Hotel hotel = (Hotel) o;
+        if (hotel.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), hotel.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getId());
+    }
+
+    @Override
+    public String toString() {
+        return "Hotel{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                ", linkImage='" + linkImage + '\'' +
+                '}';
     }
 }
