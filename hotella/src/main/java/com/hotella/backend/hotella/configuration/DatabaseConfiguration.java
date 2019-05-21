@@ -8,9 +8,10 @@ import org.springframework.context.annotation.Profile;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+@Profile("prod")
 public class DatabaseConfiguration {
 
-    @Profile("prod")
+
     @Bean
     public BasicDataSource dataSource() throws URISyntaxException {
 
