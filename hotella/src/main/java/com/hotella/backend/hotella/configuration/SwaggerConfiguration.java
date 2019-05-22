@@ -14,11 +14,12 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class SwaggerConfiguration {
 
+
     @Bean
     public Docket HotellaApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.hotella.backend.hotella.resource"))
+                .apis(RequestHandlerSelectors.basePackage("com.hotella.backend.hotella"))
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(metaData());
@@ -35,5 +36,4 @@ public class SwaggerConfiguration {
                 "https://www.apache.org/licenses/LICENSE-2.0");
         return apiInfo;
     }
-
 }
