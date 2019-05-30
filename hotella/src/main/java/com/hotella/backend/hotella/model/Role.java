@@ -14,6 +14,9 @@ public class Role {
     @Column(name="name")
     private String name;
 
+    @Column(name="fk_basic_user")
+    private int fkBasicUser;
+
     public Role() {
     }
 
