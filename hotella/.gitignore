@@ -30,3 +30,4 @@ aplication-dev.properties
 
 ### VS Code ###
 .vscode/
+*.properties
