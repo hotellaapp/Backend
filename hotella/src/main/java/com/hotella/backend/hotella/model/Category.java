@@ -34,10 +34,6 @@ public class Category implements Serializable {
     @Column(name = "is_active", nullable = false)
     private Boolean isActive;
 
-    @ManyToOne(optional = false)
-    @NotNull
-    private Hotel clientHotel;
-
     public Long getId() {
         return id;
     }
@@ -85,14 +81,6 @@ public class Category implements Serializable {
         this.isActive = isActive;
     }
 
-    public Hotel getClientHotel() {
-        return clientHotel;
-    }
-
-    public void setClientHotel(Hotel clientHotel) {
-        this.clientHotel = clientHotel;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -120,7 +108,6 @@ public class Category implements Serializable {
                 ", name='" + name + '\'' +
                 ", paymentType=" + paymentType +
                 ", isActive=" + isActive +
-                ", clientHotel=" + clientHotel +
                 '}';
     }
 }
