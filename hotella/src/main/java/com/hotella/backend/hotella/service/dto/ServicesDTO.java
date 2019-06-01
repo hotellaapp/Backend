@@ -1,12 +1,13 @@
 package com.hotella.backend.hotella.service.dto;
 
-import com.hotella.backend.hotella.model.enumeration.PaymentType;
-
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class CategoryDTO implements Serializable {
+/**
+ * A DTO for the Services entity.
+ */
+public class ServicesDTO implements Serializable {
 
     private Long id;
 
@@ -14,10 +15,13 @@ public class CategoryDTO implements Serializable {
     private String name;
 
     @NotNull
-    private PaymentType paymentType;
+    private Float price;
 
     @NotNull
     private Boolean isActive;
+
+
+    private Long categoryId;
 
     public Long getId() {
         return id;
@@ -35,12 +39,12 @@ public class CategoryDTO implements Serializable {
         this.name = name;
     }
 
-    public PaymentType getPaymentType() {
-        return paymentType;
+    public Float getPrice() {
+        return price;
     }
 
-    public void setPaymentType(PaymentType paymentType) {
-        this.paymentType = paymentType;
+    public void setPrice(Float price) {
+        this.price = price;
     }
 
     public Boolean isIsActive() {
@@ -49,6 +53,14 @@ public class CategoryDTO implements Serializable {
 
     public void setIsActive(Boolean isActive) {
         this.isActive = isActive;
+    }
+
+    public Long getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
     }
 
     @Override
@@ -60,11 +72,11 @@ public class CategoryDTO implements Serializable {
             return false;
         }
 
-        CategoryDTO categoryssDTO = (CategoryDTO) o;
-        if (categoryssDTO.getId() == null || getId() == null) {
+        ServicesDTO servicesDTO = (ServicesDTO) o;
+        if (servicesDTO.getId() == null || getId() == null) {
             return false;
         }
-        return Objects.equals(getId(), categoryssDTO.getId());
+        return Objects.equals(getId(), servicesDTO.getId());
     }
 
     @Override
@@ -74,11 +86,12 @@ public class CategoryDTO implements Serializable {
 
     @Override
     public String toString() {
-        return "CategoryDTO{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", paymentType=" + paymentType +
-                ", isActive=" + isActive +
-                '}';
+        return "ServicesDTO{" +
+                "id=" + getId() +
+                ", name='" + getName() + "'" +
+                ", price=" + getPrice() +
+                ", isActive='" + isIsActive() + "'" +
+                ", category=" + getCategoryId() +
+                "}";
     }
 }

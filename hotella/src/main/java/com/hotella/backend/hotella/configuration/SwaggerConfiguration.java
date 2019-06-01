@@ -19,7 +19,7 @@ public class SwaggerConfiguration {
     public Docket HotellaApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.hotella.backend.hotella"))
+                .apis(RequestHandlerSelectors.basePackage("com.hotella.backend.hotella.resource"))
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(metaData());

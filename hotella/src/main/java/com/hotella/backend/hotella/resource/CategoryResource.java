@@ -1,4 +1,4 @@
-package com.hotella.backend.hotella.web.rest;
+package com.hotella.backend.hotella.resource;
 
 import com.hotella.backend.hotella.service.CategoryService;
 import com.hotella.backend.hotella.service.dto.CategoryDTO;

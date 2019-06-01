@@ -1,7 +1,7 @@
-package com.hotella.backend.hotella.web.rest;
+package com.hotella.backend.hotella.resource;
 
-import com.hotella.backend.hotella.model.Services;
 import com.hotella.backend.hotella.service.ServicesService;
+import com.hotella.backend.hotella.service.dto.ServicesDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -20,8 +20,6 @@ public class ServicesResource {
 
     private final Logger log = LoggerFactory.getLogger(ServicesResource.class);
 
-    private static final String ENTITY_NAME = "service";
-
     private final ServicesService servicesService;
 
     public ServicesResource(ServicesService servicesService) {
@@ -29,37 +27,37 @@ public class ServicesResource {
     }
 
     @PostMapping("/services")
-    public ResponseEntity<Services> createService(@Valid @RequestBody Services services) throws URISyntaxException {
-        log.info("REST request to save Services : {}", services);
-        if (services.getId() != null) {
-            return new ResponseEntity<>(services, HttpStatus.BAD_REQUEST);
+    public ResponseEntity<ServicesDTO> createService(@Valid @RequestBody ServicesDTO servicesDTO) throws URISyntaxException {
+        log.info("REST request to save Services : {}", servicesDTO);
+        if (servicesDTO.getId() != null) {
+            return new ResponseEntity<>(servicesDTO, HttpStatus.BAD_REQUEST);
         }
-        Services result = servicesService.save(services);
+        ServicesDTO result = servicesService.save(servicesDTO);
         return ResponseEntity.created(new URI("/api/services/" + result.getId()))
                 .body(result);
     }
 
     @PutMapping("/services")
-    public ResponseEntity<Services> updateService(@Valid @RequestBody Services services) throws URISyntaxException {
-        log.info("REST request to update Services : {}", services);
-        if (services.getId() == null) {
-            return new ResponseEntity<>(services, HttpStatus.BAD_REQUEST);
+    public ResponseEntity<ServicesDTO> updateService(@Valid @RequestBody ServicesDTO servicesDTO) throws URISyntaxException {
+        log.info("REST request to update Services : {}", servicesDTO);
+        if (servicesDTO.getId() == null) {
+            return new ResponseEntity<>(servicesDTO, HttpStatus.BAD_REQUEST);
         }
-        Services result = servicesService.save(services);
+        ServicesDTO result = servicesService.save(servicesDTO);
         return ResponseEntity.ok()
                 .body(result);
     }
 
     @GetMapping("/services")
-    public List<Services> getAllServices() {
+    public List<ServicesDTO> getAllServices() {
         log.info("REST request to get all Services");
         return servicesService.findAll();
     }
 
     @GetMapping("/services/{id}")
-    public ResponseEntity<Services> getService(@PathVariable Long id) {
+    public ResponseEntity<ServicesDTO> getService(@PathVariable Long id) {
         log.info("REST request to get Services : {}", id);
-        Optional<Services> services = servicesService.findOne(id);
+        Optional<ServicesDTO> services = servicesService.findOne(id);
         if (services.isPresent()) {
             return ResponseEntity.ok().body(services.get());
         } else {

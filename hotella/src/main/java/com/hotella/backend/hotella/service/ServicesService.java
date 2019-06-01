@@ -1,17 +1,17 @@
 package com.hotella.backend.hotella.service;
 
-import com.hotella.backend.hotella.model.Services;
+import com.hotella.backend.hotella.service.dto.ServicesDTO;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface ServicesService {
 
-    Services save(Services service);
+    ServicesDTO save(ServicesDTO servicesDTO);
 
-    List<Services> findAll();
+    List<ServicesDTO> findAll();
 
-    Optional<Services> findOne(Long id);
+    Optional<ServicesDTO> findOne(Long id);
 
     void delete(Long id);
 

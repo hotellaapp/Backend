@@ -1,4 +1,4 @@
-package com.hotella.backend.hotella.web.rest;
+package com.hotella.backend.hotella.resource;
 
 import com.hotella.backend.hotella.model.Reservation;
 import com.hotella.backend.hotella.service.ReservationService;
