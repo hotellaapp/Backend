@@ -14,6 +14,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class SwaggerConfiguration {
 
+
     @Bean
     public Docket HotellaApi() {
         return new Docket(DocumentationType.SWAGGER_2)
@@ -35,5 +36,4 @@ public class SwaggerConfiguration {
                 "https://www.apache.org/licenses/LICENSE-2.0");
         return apiInfo;
     }
-
 }

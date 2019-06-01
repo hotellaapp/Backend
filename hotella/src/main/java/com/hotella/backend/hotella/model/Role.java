@@ -3,23 +3,23 @@ package com.hotella.backend.hotella.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name ="ROLE")
+@Table(name = "ROLE")
 public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="id")
+    @Column(name = "id")
     private int id;
 
-    @Column(name="name")
-    private String name;
+    @Column(name = "definition")
+    private String definition;
 
     public Role() {
     }
 
-    public Role(int id, String name) {
+    public Role(int id, String definition) {
         this.id = id;
-        this.name = name;
+        this.definition = definition;
     }
 
 
