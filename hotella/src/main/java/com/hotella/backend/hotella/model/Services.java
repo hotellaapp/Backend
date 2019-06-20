@@ -27,6 +27,9 @@ public class Services implements Serializable {
     @Column(name = "price", nullable = false)
     private Float price;
 
+    @Column(name = "schedule")
+    private String schedule;
+
     @NotNull
     @Column(name = "is_active", nullable = false)
     private Boolean isActive;
@@ -67,6 +70,19 @@ public class Services implements Serializable {
 
     public void setPrice(Float price) {
         this.price = price;
+    }
+
+    public String getSchedule() {
+        return schedule;
+    }
+
+    public Services schedule(String Schedule) {
+        this.schedule = schedule;
+        return this;
+    }
+
+    public void setSchedule(String schedule) {
+        this.schedule = schedule;
     }
 
     public Boolean isIsActive() {
@@ -121,6 +137,7 @@ public class Services implements Serializable {
                 "id=" + getId() +
                 ", name='" + getName() + "'" +
                 ", price=" + getPrice() +
+                ", schedule=" + getSchedule() +
                 ", isActive='" + isIsActive() + "'" +
                 "}";
     }

@@ -25,7 +25,7 @@ public class Client extends BasicUser implements Serializable {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "code", nullable = false)
+    @Column(name = "code")
     private String code;
 
     @NotNull
