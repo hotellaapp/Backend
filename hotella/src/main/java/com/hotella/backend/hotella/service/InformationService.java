@@ -1,6 +1,6 @@
 package com.hotella.backend.hotella.service;
 
-import com.ultra.gate.service.dto.InformationDTO;
+import com.hotella.backend.hotella.service.dto.InformationDTO;
 
 import java.util.List;
 import java.util.Optional;

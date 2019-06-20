@@ -1,4 +1,5 @@
-package com.ultra.gate.service.dto;
+package com.hotella.backend.hotella.service.dto;
+
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -122,15 +123,15 @@ public class InformationDTO implements Serializable {
     @Override
     public String toString() {
         return "InformationDTO{" +
-            "id=" + getId() +
-            ", name='" + getName() + "'" +
-            ", description='" + getDescription() + "'" +
-            ", address='" + getAddress() + "'" +
-            ", telephone='" + getTelephone() + "'" +
-            ", email='" + getEmail() + "'" +
-            ", longitude='" + getLongitude() + "'" +
-            ", latitude='" + getLatitude() + "'" +
-            ", imageUrl='" + getImageUrl() + "'" +
-            "}";
+                "id=" + getId() +
+                ", name='" + getName() + "'" +
+                ", description='" + getDescription() + "'" +
+                ", address='" + getAddress() + "'" +
+                ", telephone='" + getTelephone() + "'" +
+                ", email='" + getEmail() + "'" +
+                ", longitude='" + getLongitude() + "'" +
+                ", latitude='" + getLatitude() + "'" +
+                ", imageUrl='" + getImageUrl() + "'" +
+                "}";
     }
 }

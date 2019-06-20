@@ -1,7 +1,7 @@
 package com.hotella.backend.hotella.service.mapper;
 
 import com.hotella.backend.hotella.model.Information;
-import com.ultra.gate.service.dto.InformationDTO;
+import com.hotella.backend.hotella.service.dto.InformationDTO;
 import org.mapstruct.Mapper;
 
 /**

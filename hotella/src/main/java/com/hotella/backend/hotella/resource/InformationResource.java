@@ -1,7 +1,7 @@
 package com.hotella.backend.hotella.resource;
 
 import com.hotella.backend.hotella.service.InformationService;
-import com.ultra.gate.service.dto.InformationDTO;
+import com.hotella.backend.hotella.service.dto.InformationDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
